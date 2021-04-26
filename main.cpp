@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
-
+#include "theBoard.h"
 int main() {
-    std::vector<std::vector<char>> gameScreen(10);
+    std::vector<std::vector<char>> gameScreen;
 
     int column_size = 10;
+    int row_size = 10;
+    createBoard(gameScreen, row_size, column_size);
 
     for (int i = 0; i < gameScreen.size(); ++i) {
         for (int j = 0; j < column_size; ++j) {
@@ -12,7 +14,7 @@ int main() {
         }
     }
 
-    gameScreen.at(0).at(0) = '^';
+    gameScreen.at(5).at(5) = '^';
     gameScreen.at(1).at(0) = '|';
     gameScreen.at(2).at(0) = '|';
 
