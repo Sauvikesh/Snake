@@ -8,7 +8,7 @@ int main() {
     createBoard(gameScreen, row_size, column_size);
 
 
-    gameScreen.at(5).at(5) = '^';
+    gameScreen.at(0).at(0) = '^';
     gameScreen.at(1).at(0) = '|';
     gameScreen.at(2).at(0) = '|';
 
@@ -25,6 +25,28 @@ int main() {
     gameScreen.at(0).at(1) = '>';
     gameScreen.at(0).at(0) = '/';
     gameScreen.at(1).at(0) = '|';
+
+
+    for (int n = 0; n < 10; n++){
+        printf( "\n\n\n\n\n\n\n\n\n\n" );
+    }
+
+    for (int i = 0; i < gameScreen.size(); ++i) {
+        for (int j = 0; j < column_size; ++j) {
+            std::cout << gameScreen.at(i).at(j) << ' ';
+        }
+        std::cout << std::endl;
+    }
+
+
+    std::cin >> choice;
+    gameScreen.at(0).at(2) = '>';
+    gameScreen.at(0).at(1) = '-';
+    gameScreen.at(0).at(0) = '/';
+
+    for (int n = 0; n < 10; n++){
+        printf( "\n\n\n\n\n\n\n\n\n\n" );
+    }
 
     for (int i = 0; i < gameScreen.size(); ++i) {
         for (int j = 0; j < column_size; ++j) {

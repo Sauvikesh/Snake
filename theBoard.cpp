@@ -4,6 +4,7 @@
 
 #include "theBoard.h"
 #include <vector>
+#include <iostream>
 void createBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
 
     for (int i = 0; i < row_size; ++i) {
@@ -12,4 +13,13 @@ void createBoard(std::vector<std::vector<char>>& theBoard, int row_size, int col
         }
     }
 
+}
+
+void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
+    for (int i = 0; i < theBoard.size(); ++i) {
+        for (int j = 0; j < column_size; ++j) {
+            std::cout << theBoard.at(i).at(j) << ' ';
+        }
+        std::cout << std::endl;
+    }
 }
