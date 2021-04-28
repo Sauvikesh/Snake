@@ -12,13 +12,7 @@ int main() {
     gameScreen.at(1).at(0) = '|';
     gameScreen.at(2).at(0) = '|';
 
-    for (int i = 0; i < gameScreen.size(); ++i) {
-        for (int j = 0; j < column_size; ++j) {
-            std::cout << gameScreen.at(i).at(j) << ' ';
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
+    printBoard(gameScreen, row_size, column_size);
 
     char choice;
     std::cin >> choice;
@@ -31,12 +25,7 @@ int main() {
         printf( "\n\n\n\n\n\n\n\n\n\n" );
     }
 
-    for (int i = 0; i < gameScreen.size(); ++i) {
-        for (int j = 0; j < column_size; ++j) {
-            std::cout << gameScreen.at(i).at(j) << ' ';
-        }
-        std::cout << std::endl;
-    }
+    printBoard(gameScreen, row_size, column_size);
 
 
     std::cin >> choice;
@@ -48,12 +37,7 @@ int main() {
         printf( "\n\n\n\n\n\n\n\n\n\n" );
     }
 
-    for (int i = 0; i < gameScreen.size(); ++i) {
-        for (int j = 0; j < column_size; ++j) {
-            std::cout << gameScreen.at(i).at(j) << ' ';
-        }
-        std::cout << std::endl;
-    }
+    printBoard(gameScreen, row_size, column_size);
 
     return 0;
 }

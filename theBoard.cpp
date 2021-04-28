@@ -23,3 +23,9 @@ void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int colu
         std::cout << std::endl;
     }
 }
+
+void clearConsole() {
+    for (int n = 0; n < 10; n++) {
+        printf( "\n\n\n\n\n\n\n\n\n\n" );
+    }
+}
