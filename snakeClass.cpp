@@ -20,6 +20,10 @@ void Snake::addSegment(int x, int y) {
     snakeBodyPositions.emplace_back(xyCords, snakeBodyPositions.size());
 }
 
+std::vector<std::pair<std::pair<int, int>, int>> Snake::getsnakeVector() {
+    return snakeBodyPositions;
+}
+
 std::pair<int, int> Snake::getTail() {
     return snakeBodyPositions.at(snakeBodyPositions.size() - 1).first;
 }

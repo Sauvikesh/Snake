@@ -11,6 +11,7 @@ public:
     void setHead(int x, int y);
     std::pair<int, int> getHead();
     void addSegment(int x, int y);
+    std::vector<std::pair<std::pair<int, int>, int>> getsnakeVector();
     std::pair<int, int> getTail();
 
 

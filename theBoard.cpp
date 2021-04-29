@@ -3,10 +3,11 @@
 //
 
 #include "theBoard.h"
+#include "snakeClass.h"
 #include <vector>
 #include <iostream>
 
-void fillBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
+void fillBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
     for (int i = 0; i < column_size; i++) {
         theBoard.at(0).at(i) = '*';
     }
@@ -19,8 +20,14 @@ void fillBoard(std::vector<std::vector<char>>& theBoard, int row_size, int colum
     for (int i = 0; i < column_size; i++) {
         theBoard.at(row_size - 1).at(i) = '*';
     }
+}
+void updateBoard(const Snake& theSnake, std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
+
 
 }
+
+
+
 void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
 
     for (int i = 0; i < row_size; i++) {
