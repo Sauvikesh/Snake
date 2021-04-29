@@ -1,4 +1,4 @@
 # Snake
 
-I am trying to create the famous game snake in C++ to improve my C++ and general coding skills.
+I am trying to create the game "Snake" in C++.
 (Currently in the beggining stage of creation, so the code is sloppy).
