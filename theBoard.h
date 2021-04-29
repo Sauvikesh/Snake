@@ -5,7 +5,6 @@
 #ifndef SNAKE_THEBOARD_H
 #define SNAKE_THEBOARD_H
 
-void createBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size);
 void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size);
 void clearConsole();
 
