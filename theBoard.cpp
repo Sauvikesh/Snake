@@ -12,7 +12,6 @@ void createBoard(std::vector<std::vector<char>>& theBoard, int row_size, int col
             theBoard.at(i).push_back('*');
         }
     }
-
 }
 
 void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {

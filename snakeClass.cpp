@@ -6,27 +6,25 @@
 #include <utility>
 
 void Snake::setHead(int x, int y) {
-    headPosition = std::make_pair(x,y);
+    std::pair<int, int> xyCords = std::make_pair(x,y);
+    snakeBodyPositions.emplace_back(xyCords, 0);
+    //headPosition = std::make_pair(x,y);
 }
 
 std::pair<int, int> Snake::getHead() {
-    return headPosition;
+    return snakeBodyPositions.at(0).first;
 }
 
-void Snake::setTail(int x, int y) {
-    tailPosition = std::make_pair(x,y);
+void Snake::addSegment(int x, int y) {
+    std::pair<int, int> xyCords = std::make_pair(x,y);
+    snakeBodyPositions.emplace_back(xyCords, snakeBodyPositions.size());
 }
 
 std::pair<int, int> Snake::getTail() {
-    return tailPosition;
+    return snakeBodyPositions.at(snakeBodyPositions.size() - 1).first;
 }
 
-void Snake::setLength(int length) {
-    snakeLength = length;
-}
-int Snake::getLength() {
-    return snakeLength;
-}
+
 
 
 
