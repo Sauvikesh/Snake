@@ -3,12 +3,13 @@
 #include "theBoard.h"
 #include "snakeClass.h"
 int main() {
-    int column_size = 10;
+    int column_size = 12;
     int row_size = 10;
     Snake theSnake;
-    std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, '*'));
+    std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
 
-    gameScreen.at(0).at(6) = 'V';
+    fillBoard(gameScreen, row_size, column_size);
+    gameScreen.at(4).at(7) = 'V';
     printBoard(gameScreen, row_size, column_size);
 
     char choice;
