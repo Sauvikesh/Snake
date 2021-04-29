@@ -10,22 +10,9 @@ int main() {
 
     fillBoard(gameScreen, row_size, column_size);
 
-    theSnake.setHead(2,3);
-
     printBoard(gameScreen, row_size, column_size);
-
-    char choice;
-    std::cin >> choice;
 
     clearConsole();
-
-    printBoard(gameScreen, row_size, column_size);
-
-    std::cin >> choice;
-
-    clearConsole();
-
-    printBoard(gameScreen, row_size, column_size);
 
     return 0;
 }
