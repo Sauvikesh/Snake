@@ -8,7 +8,6 @@
 void Snake::setHead(int x, int y) {
     std::pair<int, int> xyCords = std::make_pair(x,y);
     snakeBodyPositions.emplace_back(xyCords, 0);
-    //headPosition = std::make_pair(x,y);
 }
 
 std::pair<int, int> Snake::getHead() {

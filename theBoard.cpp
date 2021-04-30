@@ -21,8 +21,11 @@ void fillBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, co
         theBoard.at(row_size - 1).at(i) = '*';
     }
 }
-void updateBoard(const Snake& theSnake, std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
+void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
 
+    for(const auto& element : theSnake.getsnakeVector()) {
+        theBoard.at(element.first.first).at(element.first.second) = 'S';
+    }
 
 }
 
@@ -31,7 +34,7 @@ void updateBoard(const Snake& theSnake, std::vector<std::vector<char>>& theBoard
 void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
 
     for (int i = 0; i < row_size; i++) {
-        for(int j = 0; j < column_size; j++){
+        for(int j = 0; j < column_size; j++) {
             std::cout << theBoard.at(i).at(j) << ' ';
         }
         std::cout << std::endl;
