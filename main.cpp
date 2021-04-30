@@ -6,18 +6,28 @@ int main() {
     int column_size = 15;
     int row_size = 10;
     Snake theSnake;
-    theSnake.setHead(6, 6);
-    theSnake.addSegment(6,5);
     //IMPORTANT NOTE, the X values are access from .at.().at(this one)
     // and Y is the first .at()
     std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
-
     fillBoard(gameScreen, row_size, column_size);
-    updateBoard(theSnake, gameScreen, row_size, column_size);
 
+    theSnake.setHead(column_size / 2, row_size / 2);
+    theSnake.addSegment((row_size / 2) + 1, column_size / 2);
+    theSnake.addSegment((row_size / 2) + 2, column_size / 2);
+
+    updateBoard(theSnake, gameScreen);
     printBoard(gameScreen, row_size, column_size);
 
-    clearConsole();
+    char choice;
+    std::cout << "Make a choice" << std::endl;
+    std::cin >> choice;
+
+    theSnake.getsnakeVector().at(0).first.second = 9;
+
+    updateBoard(theSnake, gameScreen);
+    printBoard(gameScreen, row_size, column_size);
+
+    //clearConsole();
 
     return 0;
 }
