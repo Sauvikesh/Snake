@@ -11,12 +11,14 @@ public:
     void setHead(int x, int y);
     std::pair<int, int> getHead();
     void addSegment(int x, int y);
-    std::vector<std::pair<std::pair<int, int>, int>> getsnakeVector();
+    std::vector<int> getsnakeVectorX();
+    std::vector<int> getsnakeVectorY();
     std::pair<int, int> getTail();
 
 
 private:
-    std::vector<std::pair<std::pair<int, int>, int>> snakeBodyPositions;
+    std::vector<int> snakeBodyPositionsX;
+    std::vector<int> snakeBodyPositionsY;
 };
 
 #endif //SNAKE_SNAKECLASS_H

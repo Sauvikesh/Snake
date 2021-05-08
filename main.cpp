@@ -6,7 +6,7 @@ int main() {
     int column_size = 15;
     int row_size = 10;
     Snake theSnake;
-    //IMPORTANT NOTE, the X values are access from .at.().at(this one)
+    //IMPORTANT NOTE, the X values are accessed from .at.().at(this one)
     // and Y is the first .at()
     std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
     fillBoard(gameScreen, row_size, column_size);
@@ -22,7 +22,8 @@ int main() {
     std::cout << "Make a choice" << std::endl;
     std::cin >> choice;
 
-    theSnake.getsnakeVector().at(0).first.second = 9;
+   //theSnake.getsnakeVector().erase(theSnake.getsnakeVector().begin());
+    //theSnake.setHead(7, 4);
 
     updateBoard(theSnake, gameScreen);
     printBoard(gameScreen, row_size, column_size);

@@ -22,13 +22,25 @@ void fillBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, co
     }
 }
 void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard) {
-    for (const auto& element : theSnake.getsnakeVector()) {
+
+
+    for(int i = 0; i < theSnake.getsnakeVectorX().size(); i++) {
+        if (i == 0) {
+            theBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'H';
+        } else {
+            theBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'S';
+        }
+    }
+
+    /*
+    for (const auto& element : theSnake.getsnakeVectorX(), theSnake.getsnakeVectorY()) {
         if(element.second == 0){
             theBoard.at(element.first.second).at(element.first.first) = 'H';
         } else {
             theBoard.at(element.first.first).at(element.first.second) = 'S';
         }
     }
+    */
 }
 
 

@@ -6,25 +6,29 @@
 #include <utility>
 
 void Snake::setHead(int x, int y) {
-    std::pair<int, int> xyCords = std::make_pair(x,y);
-    snakeBodyPositions.emplace_back(xyCords, 0);
+    this->snakeBodyPositionsX.push_back(x);
+    this->snakeBodyPositionsY.push_back(y);
 }
 
 std::pair<int, int> Snake::getHead() {
-    return snakeBodyPositions.at(0).first;
+    auto the_pair = std::make_pair(snakeBodyPositionsX.at(0), snakeBodyPositionsY.at(0));
+    return the_pair;
 }
 
 void Snake::addSegment(int x, int y) {
-    std::pair<int, int> xyCords = std::make_pair(x,y);
-    snakeBodyPositions.emplace_back(xyCords, snakeBodyPositions.size());
+    this->snakeBodyPositionsX.push_back(x);
+    this->snakeBodyPositionsY.push_back(y);
 }
 
-std::vector<std::pair<std::pair<int, int>, int>> Snake::getsnakeVector() {
-    return snakeBodyPositions;
+std::vector<int> Snake::getsnakeVectorX() {
+    return snakeBodyPositionsX;
+}
+std::vector<int> Snake::getsnakeVectorY() {
+    return snakeBodyPositionsY;
 }
 
 std::pair<int, int> Snake::getTail() {
-    return snakeBodyPositions.at(snakeBodyPositions.size() - 1).first;
+    return snakeBodyPositionsX.at(snakeBodyPositionsX.size() - 1).first;
 }
 
 
