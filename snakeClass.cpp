@@ -20,6 +20,31 @@ void Snake::addSegment(int x, int y) {
     this->snakeBodyPositionsY.push_back(y);
 }
 
+void Snake::updateSnake(char direction) {
+    std::pair<int,int> lastPosition = this->getHead();
+    std::pair<int,int> currentPosition;
+    if(direction == 'w') {
+        snakeBodyPositionsX.at(0) -= 1;
+    }
+    else if(direction == 's'){
+        snakeBodyPositionsX.at(0) += 1;
+    }
+    else if(direction == 'a'){
+        snakeBodyPositionsY.at(0) -= 1;
+    }
+    else if(direction == 'd'){
+        snakeBodyPositionsY.at(0) += 1;
+    }
+
+    for (int i = 1; i < snakeBodyPositionsX.size(); i ++){
+        currentPosition = std::make_pair(snakeBodyPositionsX.at(i),snakeBodyPositionsY.at(i));
+        snakeBodyPositionsX.at(i) = lastPosition.first;
+        snakeBodyPositionsY.at(i) = lastPosition.second;
+        lastPosition = currentPosition;
+    }
+}
+
+
 std::vector<int> Snake::getsnakeVectorX() {
     return snakeBodyPositionsX;
 }
@@ -28,7 +53,10 @@ std::vector<int> Snake::getsnakeVectorY() {
 }
 
 std::pair<int, int> Snake::getTail() {
-    return snakeBodyPositionsX.at(snakeBodyPositionsX.size() - 1).first;
+
+    auto the_pair = std::make_pair(snakeBodyPositionsX.at(snakeBodyPositionsX.size() - 1), snakeBodyPositionsY.at(snakeBodyPositionsX.size() - 1));
+    return the_pair;
+
 }
 
 

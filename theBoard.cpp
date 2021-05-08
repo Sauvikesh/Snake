@@ -7,7 +7,7 @@
 #include <vector>
 #include <iostream>
 
-void fillBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
+void fillBorders(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
     for (int i = 0; i < column_size; i++) {
         theBoard.at(0).at(i) = '*';
     }
@@ -19,6 +19,14 @@ void fillBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, co
 
     for (int i = 0; i < column_size; i++) {
         theBoard.at(row_size - 1).at(i) = '*';
+    }
+}
+
+void emptyBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
+    for(int i = 0; i < row_size; i++)  {
+        for (int j = 0; j < column_size; ++j) {
+            theBoard.at(i).at(j) = ' ';
+        }
     }
 }
 void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard) {
