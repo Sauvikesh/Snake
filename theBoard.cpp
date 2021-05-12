@@ -8,7 +8,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
-#include <random>
 
 void fillBorders(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
     for (int i = 0; i < column_size; i++) {
@@ -76,4 +75,12 @@ void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int c
         }
     }
     theBoard.at(random_y).at(random_x) = 'A';
+}
+
+void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
+    if(gameScreen.at(theSnake.getHead().first).at(theSnake.getHead().second) == '*'){
+        std::cout << "Uh oh, you hit the border" << std::endl;
+        std::cout << "Game over :((";
+        exit(0);
+    }
 }

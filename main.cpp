@@ -34,6 +34,7 @@ int main() {
         if(checkValid){
             theSnake.updateSnake(choice);
             theSnake.eatApple(gameScreen, choice);
+            checkHitBorder(theSnake, gameScreen);
             emptyBoard(gameScreen, row_size, column_size);
             fillBorders(gameScreen, row_size, column_size);
             updateBoard(theSnake, gameScreen);
@@ -41,7 +42,7 @@ int main() {
             choiceCounter++;
         }
 
-        if(choiceCounter == 6){
+        if(choiceCounter == 10){
             gameOn  = false;
         }
     }

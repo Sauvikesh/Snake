@@ -11,6 +11,7 @@ void emptyBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, c
 void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard);
 void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size);
 void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int column_size);
+void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen);
 void clearConsole();
 
 #endif //SNAKE_THEBOARD_H
