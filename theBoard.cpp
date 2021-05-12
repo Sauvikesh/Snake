@@ -37,8 +37,6 @@ void emptyBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, c
     }
 }
 void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard) {
-
-
     for(int i = 0; i < theSnake.getsnakeVectorX().size(); i++) {
         if (i == 0) {
             theBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'H';

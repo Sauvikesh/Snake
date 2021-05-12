@@ -41,7 +41,7 @@ int main() {
             choiceCounter++;
         }
 
-        if(choiceCounter == 3){
+        if(choiceCounter == 6){
             gameOn  = false;
         }
     }
