@@ -69,13 +69,13 @@ std::pair<int, int> Snake::findDifferencetoAddSegment() {
     return std::make_pair(xDifference, yDifference);
 }
 
-void Snake::eatApple(std::vector<std::vector<char>>& gameScreen, const char& direction){
+void Snake::eatApple(std::vector<std::vector<char>>& gameScreen, const std::pair<int ,int>& tailCoords) {
     if(gameScreen.at(snakeBodyPositionsX.at(0)).at(snakeBodyPositionsY.at(0)) == 'A'){
-        int xLast = this->getTail().first;
-        int yLast = this->getTail().second;
-        std::pair<int, int> differencePair = this->findDifferencetoAddSegment();
+//        int xLast = this->getTail().first;
+//        int yLast = this->getTail().second;
+//        std::pair<int, int> differencePair = this->findDifferencetoAddSegment();
 
-        this->addSegment(xLast + differencePair.first, yLast + differencePair.second);
+        this->addSegment(tailCoords.first, tailCoords.second);
     }
 }
 
