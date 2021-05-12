@@ -69,7 +69,7 @@ void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int c
     while(true){
         random_x = (rand() % (column_size - 1)) + 1;
         random_y = (rand() % (row_size - 1)) + 1;
-       // std::cout << random_y << " " << random_x << std::endl;
+        std::cout << random_y << " " << random_x << std::endl;
         if(isspace(theBoard.at(random_y).at(random_x))) {
             break;
         }

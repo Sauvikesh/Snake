@@ -17,6 +17,7 @@ int main() {
     theSnake.setHead(row_size / 2, column_size / 2);
     theSnake.addSegment((row_size / 2) + 1, column_size / 2);
     //theSnake.addSegment((row_size / 2) + 2, column_size / 2);
+    updateBoard(theSnake, gameScreen);
     generateApple(gameScreen, row_size, column_size);
     updateBoard(theSnake, gameScreen);
     printBoard(gameScreen, row_size, column_size);
