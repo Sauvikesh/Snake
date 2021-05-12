@@ -38,24 +38,18 @@ bool StreamOnlyContainsWhiteSpace(std::istream& stream) {
 bool validateUserInput(char direction, Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
     std::pair<int,int> headLocation = theSnake.getHead();
     if(direction == 'w') {
-        //if(gameScreen.at(headLocation.first - 1).at(headLocation.second) == ' ' || gameScreen.at(headLocation.first - 1).at(headLocation.second) == 'A' || gameScreen.at(headLocation.first - 1).at(headLocation.second) == '*'){
             return true;
-        //}
     }
     else if(direction == 's') {
-        //if(gameScreen.at(headLocation.first + 1).at(headLocation.second) == ' ' || gameScreen.at(headLocation.first + 1).at(headLocation.second) == 'A' || gameScreen.at(headLocation.first + 1).at(headLocation.second) == '*'){
             return true;
-        //}
+
     }
     else if(direction == 'a'){
-        //if(gameScreen.at(headLocation.first).at(headLocation.second - 1) == ' ' || gameScreen.at(headLocation.first).at(headLocation.second - 1) == 'A' || gameScreen.at(headLocation.first).at(headLocation.second - 1) == '*'){
             return true;
-        //}
+
     }
     else if(direction == 'd'){
-        //if(gameScreen.at(headLocation.first).at(headLocation.second + 1) == ' ' || gameScreen.at(headLocation.first).at(headLocation.second + 1) == 'A' || gameScreen.at(headLocation.first).at(headLocation.second + 1) == '*'){
             return true;
-        //}
     }
     else{
         return false;
