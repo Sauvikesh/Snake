@@ -33,6 +33,7 @@ int main() {
 
         if(checkValid){
             theSnake.updateSnake(choice);
+            theSnake.eatApple(gameScreen, choice);
             emptyBoard(gameScreen, row_size, column_size);
             fillBorders(gameScreen, row_size, column_size);
             updateBoard(theSnake, gameScreen);

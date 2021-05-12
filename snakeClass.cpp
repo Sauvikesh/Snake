@@ -59,6 +59,25 @@ std::pair<int, int> Snake::getTail() {
 
 }
 
+void Snake::eatApple(std::vector<std::vector<char>>& gameScreen, const char& direction){
+    if(gameScreen.at(snakeBodyPositionsX.at(0)).at(snakeBodyPositionsY.at(0)) == 'A'){
+        switch (direction) {
+            case 'w':
+                this->addSegment(this->getTail().first + 1, this->getTail().second);
+                break;
+            case 's':
+                this->addSegment(this->getTail().first - 1, this->getTail().second);
+                break;
+            case 'a':
+                this->addSegment(this->getTail().first, this->getTail().second + 1);
+                break;
+            case 'd':
+                this->addSegment(this->getTail().first, this->getTail().second - 1);
+                break;
+        }
+    }
+}
+
 
 
 

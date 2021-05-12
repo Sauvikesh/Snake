@@ -15,6 +15,7 @@ public:
     std::vector<int> getsnakeVectorX();
     std::vector<int> getsnakeVectorY();
     std::pair<int, int> getTail();
+    void eatApple(std::vector<std::vector<char>>& gameScreen, const char& direction);
 
 
 private:
