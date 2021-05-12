@@ -7,7 +7,8 @@ int main() {
     int column_size = 16;
     int row_size = 10;
     Snake theSnake;
-    srand(time(NULL));
+    srand((unsigned) time(0));
+    //std::rng(seed);
     //IMPORTANT NOTE, the X values are accessed from .at.().at(this one)
     // and Y is the first .at()
     std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
@@ -19,6 +20,7 @@ int main() {
     generateApple(gameScreen, row_size, column_size);
     updateBoard(theSnake, gameScreen);
     printBoard(gameScreen, row_size, column_size);
+
 
     bool gameOn = true;
     int choiceCounter = 0;

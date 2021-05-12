@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <random>
 
 void fillBorders(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
     for (int i = 0; i < column_size; i++) {
@@ -71,8 +72,8 @@ void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int c
     while(true){
         random_x = (rand() % (column_size - 1)) + 1;
         random_y = (rand() % (row_size - 1)) + 1;
-        //std::cout << random_x << " " << random_y;
-        if(theBoard.at(random_y).at(random_x) != 'H' && theBoard.at(random_y).at(random_x) != 'S' && theBoard.at(random_y).at(random_x) != '*') {
+       // std::cout << random_y << " " << random_x << std::endl;
+        if(isspace(theBoard.at(random_y).at(random_x))) {
             break;
         }
     }
