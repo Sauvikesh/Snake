@@ -84,3 +84,11 @@ void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen) 
         exit(0);
     }
 }
+
+void checkWin(Snake& theSnake, int row_size, int col_size) {
+    if(theSnake.getsnakeVectorX().size() == (row_size * col_size)){
+        std::cout << "You've filled the board!!" << std::endl;
+        std::cout << "You win!! :))";
+        exit(0);
+    }
+}
