@@ -97,6 +97,14 @@ void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen) 
     }
 }
 
+void checkHitSnake(Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
+    if(gameScreen.at(theSnake.getHead().first).at(theSnake.getHead().second) == 'S'){
+        std::cout << "Uh oh, you hit yourself" << std::endl;
+        std::cout << "Game over :((";
+        exit(0);
+    }
+}
+
 void checkWin(Snake& theSnake, int row_size, int col_size) {
     if(theSnake.getsnakeVectorX().size() == (row_size * col_size)){
         std::cout << "You've filled the board!!" << std::endl;

@@ -13,6 +13,7 @@ void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int colu
 void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int column_size);
 bool checkApple(std::vector<std::vector<char>>& theBoard, int row_size, int column_size);
 void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen);
+void checkHitSnake(Snake& theSnake, std::vector<std::vector<char>> gameScreen);
 void checkWin(Snake& theSnake, int row_size, int col_size);
 void clearConsole();
 

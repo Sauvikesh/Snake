@@ -26,9 +26,12 @@ int main() {
     bool gameOn = true;
     int choiceCounter = 0;
     while(gameOn){
+
+        // checks if the snake has eaten the apple and generates new apple
         if(!checkApple(gameScreen, row_size, column_size)) {
             generateApple(gameScreen, row_size, column_size);
             updateBoard(theSnake, gameScreen);
+            clearConsole();
             printBoard(gameScreen, row_size, column_size);
         }
 
@@ -42,21 +45,17 @@ int main() {
             std::pair<int, int> tailCoords = theSnake.getTail();
             theSnake.updateSnake(choice);
             theSnake.eatApple(gameScreen, tailCoords);
-
-
             checkHitBorder(theSnake, gameScreen);
+            checkHitSnake(theSnake, gameScreen);
             checkWin(theSnake, row_size, column_size);
             emptyBoard(gameScreen, row_size, column_size);
             fillBorders(gameScreen, row_size, column_size);
             updateBoard(theSnake, gameScreen);
+            clearConsole();
             printBoard(gameScreen, row_size, column_size);
             choiceCounter++;
         }
 
-
-        if(choiceCounter == 15){
-            gameOn  = false;
-        }
     }
 
 
