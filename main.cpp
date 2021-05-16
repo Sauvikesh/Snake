@@ -4,8 +4,8 @@
 #include "snakeClass.h"
 #include "inputValidation.h"
 int main() {
-    int column_size = 10;
-    int row_size = 10;
+    int column_size = 6;
+    int row_size = 6;
     Snake theSnake;
     srand((unsigned) time(0));
     //std::rng(seed);
@@ -16,7 +16,7 @@ int main() {
 
     theSnake.setHead(row_size / 2, column_size / 2);
     theSnake.addSegment((row_size / 2) + 1, column_size / 2);
-    theSnake.addSegment((row_size / 2) + 2, column_size / 2);
+    //theSnake.addSegment((row_size / 2) + 2, column_size / 2);
     updateBoard(theSnake, gameScreen);
     generateApple(gameScreen, row_size, column_size);
     updateBoard(theSnake, gameScreen);
@@ -59,5 +59,5 @@ int main() {
     }
 
 
-    return 0;
+    //return 0;
 }

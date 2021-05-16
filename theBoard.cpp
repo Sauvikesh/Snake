@@ -106,7 +106,7 @@ void checkHitSnake(Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
 }
 
 void checkWin(Snake& theSnake, int row_size, int col_size) {
-    if(theSnake.getsnakeVectorX().size() == (row_size * col_size)){
+    if(theSnake.getsnakeVectorX().size() == ((row_size - 2) * (col_size - 2))){
         std::cout << "You've filled the board!!" << std::endl;
         std::cout << "You win!! :))";
         exit(0);
