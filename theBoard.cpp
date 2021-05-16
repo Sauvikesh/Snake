@@ -69,12 +69,24 @@ void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int c
     while(true){
         random_x = (rand() % (column_size - 1)) + 1;
         random_y = (rand() % (row_size - 1)) + 1;
-        std::cout << random_y << " " << random_x << std::endl;
+        //std::cout << random_y << " " << random_x << std::endl;
         if(isspace(theBoard.at(random_y).at(random_x))) {
             break;
         }
     }
     theBoard.at(random_y).at(random_x) = 'A';
+}
+
+bool checkApple(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
+    for (int i = 0; i < row_size; i++) {
+        for(int j = 0; j < column_size; j++) {
+            if(theBoard.at(i).at(j) == 'A'){
+                return true;
+            }
+        }
+    }
+    return false;
+
 }
 
 void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
