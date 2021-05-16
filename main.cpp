@@ -13,16 +13,17 @@ int main() {
     //std::rng(seed);
     //IMPORTANT NOTE, the X values are accessed from .at.().at(this one)
     // and Y is the first .at()
-    std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
-    fillBorders(gameScreen, row_size, column_size);
+    gameScreen gameScreen1(row_size, column_size);
+    //std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
+    gameScreen1.fillBorders();
 
     theSnake.setHead(row_size / 2, column_size / 2);
     theSnake.addSegment((row_size / 2) + 1, column_size / 2);
     //theSnake.addSegment((row_size / 2) + 2, column_size / 2);
-    updateBoard(theSnake, gameScreen);
-    generateApple(gameScreen, row_size, column_size);
-    updateBoard(theSnake, gameScreen);
-    printBoard(gameScreen, row_size, column_size);
+    gameScreen1.updateBoard(theSnake);
+    gameScreen1.generateApple();
+    gameScreen1.updateBoard(theSnake);
+    gameScreen1.printBoard();
 
 
     bool gameOn = true;
@@ -30,18 +31,18 @@ int main() {
     while(gameOn){
 
         // checks if the snake has eaten the apple and generates new apple
-        if(!checkApple(gameScreen, row_size, column_size)) {
-            generateApple(gameScreen, row_size, column_size);
-            updateBoard(theSnake, gameScreen);
+        if(!gameScreen1.checkApple()) {
+            gameScreen1.generateApple();
+            gameScreen1.updateBoard(theSnake);
             clearConsole();
-            printBoard(gameScreen, row_size, column_size);
+            gameScreen1.printBoard();
         }
 
         char choice;
         //std::cout << "Make a choice" << std::endl;
         choice = getValidChar("");
         std::cout << std::endl;
-        bool checkValid = validateUserInput(choice, theSnake,gameScreen);
+        bool checkValid = validateUserInput(choice, theSnake, gameScreen1);
 
         if(checkValid){
             std::pair<int, int> tailCoords = theSnake.getTail();

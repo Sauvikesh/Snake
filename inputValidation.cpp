@@ -35,7 +35,7 @@ bool StreamOnlyContainsWhiteSpace(std::istream& stream) {
     }
 }
 
-bool validateUserInput(char direction, Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
+bool validateUserInput(char direction, Snake& theSnake, const gameScreen& gameScreen) {
     std::pair<int,int> headLocation = theSnake.getHead();
     if(direction == 'w') {
             return true;
