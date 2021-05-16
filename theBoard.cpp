@@ -13,48 +13,48 @@ gameScreen::gameScreen(int rows, int cols) : rows(rows), cols(cols) {
     std::vector<std::vector<char>> gameBoard(rows, std::vector<char>(cols, ' '));
 }
 
-void fillBorders(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
-    for (int i = 0; i < column_size; i++) {
-        theBoard.at(0).at(i) = '*';
+void gameScreen::fillBorders() {
+    for (int i = 0; i < this->cols; i++) {
+        this->gameBoard.at(0).at(i) = '*';
     }
 
-    for (int i = 0; i < row_size; i++){
-        theBoard.at(i).at(0) = '*';
-        theBoard.at(i).at(column_size - 1) = '*';
+    for (int i = 0; i < this->rows; i++){
+        this->gameBoard.at(i).at(0) = '*';
+        this->gameBoard.at(i).at(this->cols - 1) = '*';
     }
 
-    for (int i = 0; i < column_size; i++) {
-        theBoard.at(row_size - 1).at(i) = '*';
+    for (int i = 0; i < this->cols; i++) {
+        this->gameBoard.at(this->rows - 1).at(i) = '*';
     }
 }
 
-void emptyBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
-    for (int i = 0; i < row_size; i++)  {
-        for (int j = 0; j < column_size; ++j) {
-            if(theBoard.at(i).at(j) == 'A'){
+void gameScreen::emptyBoard() {
+    for (int i = 0; i < this->rows; i++)  {
+        for (int j = 0; j < this->cols; ++j) {
+            if(this->gameBoard.at(i).at(j) == 'A'){
                 continue;
             } else{
-                theBoard.at(i).at(j) = ' ';
+                this->gameBoard.at(i).at(j) = ' ';
             }
         }
     }
 }
-void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard) {
+void gameScreen::updateBoard(Snake& theSnake) {
     for(int i = 0; i < theSnake.getsnakeVectorX().size(); i++) {
         if (i == 0) {
-            theBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'H';
+            this->gameBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'H';
         } else {
-            theBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'S';
+            this->gameBoard.at(theSnake.getsnakeVectorX().at(i)).at(theSnake.getsnakeVectorY().at(i)) = 'S';
         }
     }
 
 }
 
-void printBoard(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
+void gameScreen::printBoard() {
 
-    for (int i = 0; i < row_size; i++) {
-        for(int j = 0; j < column_size; j++) {
-            std::cout << theBoard.at(i).at(j) << ' ';
+    for (int i = 0; i < this->rows; i++) {
+        for(int j = 0; j < this->cols; j++) {
+            std::cout << this->gameBoard.at(i).at(j) << ' ';
         }
         std::cout << std::endl;
     }
@@ -67,50 +67,49 @@ void clearConsole() {
     }
 }
 
-void generateApple(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
+void gameScreen::generateApple() {
     int random_x;
     int random_y;
     while(true){
-        random_x = (rand() % (column_size - 1)) + 1;
-        random_y = (rand() % (row_size - 1)) + 1;
+        random_x = (rand() % (this->cols - 1)) + 1;
+        random_y = (rand() % (this->rows - 1)) + 1;
         //std::cout << random_y << " " << random_x << std::endl;
-        if(isspace(theBoard.at(random_y).at(random_x))) {
+        if(isspace(this->gameBoard.at(random_y).at(random_x))) {
             break;
         }
     }
-    theBoard.at(random_y).at(random_x) = 'A';
+    this->gameBoard.at(random_y).at(random_x) = 'A';
 }
 
-bool checkApple(std::vector<std::vector<char>>& theBoard, int row_size, int column_size) {
-    for (int i = 0; i < row_size; i++) {
-        for(int j = 0; j < column_size; j++) {
-            if(theBoard.at(i).at(j) == 'A'){
+bool gameScreen::checkApple() {
+    for (int i = 0; i < this->rows; i++) {
+        for(int j = 0; j < this->cols; j++) {
+            if(this->gameBoard.at(i).at(j) == 'A') {
                 return true;
             }
         }
     }
     return false;
-
 }
 
-void checkHitBorder(Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
-    if(gameScreen.at(theSnake.getHead().first).at(theSnake.getHead().second) == '*'){
+void gameScreen::checkHitBorder(Snake& theSnake) {
+    if (this->gameBoard.at(theSnake.getHead().first).at(theSnake.getHead().second) == '*') {
         std::cout << "Uh oh, you hit the border" << std::endl;
         std::cout << "Game over :((";
         exit(0);
     }
 }
 
-void checkHitSnake(Snake& theSnake, std::vector<std::vector<char>> gameScreen) {
-    if(gameScreen.at(theSnake.getHead().first).at(theSnake.getHead().second) == 'S'){
+void gameScreen::checkHitSnake(Snake& theSnake) {
+    if(this->gameBoard.at(theSnake.getHead().first).at(theSnake.getHead().second) == 'S'){
         std::cout << "Uh oh, you hit yourself" << std::endl;
         std::cout << "Game over :((";
         exit(0);
     }
 }
 
-void checkWin(Snake& theSnake, int row_size, int col_size) {
-    if(theSnake.getsnakeVectorX().size() == ((row_size - 2) * (col_size - 2))){
+void gameScreen::checkWin(Snake& theSnake) {
+    if(theSnake.getsnakeVectorX().size() == ((this->rows - 2) * (this->cols - 2))){
         std::cout << "You've filled the board!!" << std::endl;
         std::cout << "You win!! :))";
         exit(0);

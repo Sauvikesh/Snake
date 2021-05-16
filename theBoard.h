@@ -10,6 +10,16 @@ class gameScreen{
 public:
     gameScreen(int rows, int cols);
 
+    void fillBorders();
+    void emptyBoard();
+    void updateBoard(Snake& theSnake);
+    void printBoard();
+    void generateApple();
+    bool checkApple();
+    void checkHitBorder(Snake& theSnake);
+    void checkHitSnake(Snake& theSnake);
+    void checkWin(Snake& theSnake);
+
 private:
     std::vector<std::vector<char>> gameBoard;
     int rows;
