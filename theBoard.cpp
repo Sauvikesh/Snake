@@ -9,6 +9,10 @@
 #include <cstdlib>
 #include <time.h>
 
+gameScreen::gameScreen(int rows, int cols) : rows(rows), cols(cols) {
+    std::vector<std::vector<char>> gameBoard(rows, std::vector<char>(cols, ' '));
+}
+
 void fillBorders(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size) {
     for (int i = 0; i < column_size; i++) {
         theBoard.at(0).at(i) = '*';

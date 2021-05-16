@@ -3,6 +3,8 @@
 #include "theBoard.h"
 #include "snakeClass.h"
 #include "inputValidation.h"
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "EndlessLoop"
 int main() {
     int column_size = 6;
     int row_size = 6;
@@ -61,3 +63,5 @@ int main() {
 
     //return 0;
 }
+
+#pragma clang diagnostic pop

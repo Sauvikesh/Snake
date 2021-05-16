@@ -6,6 +6,16 @@
 #ifndef SNAKE_THEBOARD_H
 #define SNAKE_THEBOARD_H
 
+class gameScreen{
+public:
+    gameScreen(int rows, int cols);
+
+private:
+    std::vector<std::vector<char>> gameBoard;
+    int rows;
+    int cols;
+};
+
 void fillBorders(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size);
 void emptyBoard(std::vector<std::vector<char>>& theBoard, const int& row_size, const int& column_size);
 void updateBoard(Snake& theSnake, std::vector<std::vector<char>>& theBoard);
