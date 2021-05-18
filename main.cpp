@@ -11,12 +11,10 @@ int main() {
     Snake theSnake;
     srand(time(NULL));
     gameScreen gameScreen1(row_size, column_size);
-    //std::vector<std::vector<char>> gameScreen(row_size, std::vector<char>(column_size, ' '));
     gameScreen1.fillBorders();
 
     theSnake.setHead(row_size / 2, column_size / 2);
     theSnake.addSegment((row_size / 2) + 1, column_size / 2);
-    //theSnake.addSegment((row_size / 2) + 2, column_size / 2);
     gameScreen1.updateBoard(theSnake);
     gameScreen1.generateApple();
     gameScreen1.updateBoard(theSnake);
