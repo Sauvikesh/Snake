@@ -14,7 +14,7 @@ gameScreen::gameScreen(int rows, int cols) : rows(rows), cols(cols) {
     this->gameBoard = gameBoardTemp;
 }
 
-std::vector<std::vector<char>> gameScreen::getGameBoard(){
+std::vector<std::vector<char>> gameScreen::getGameBoard() const{
     return this->gameBoard;
 }
 
@@ -66,7 +66,7 @@ void gameScreen::printBoard() {
     std::cout << std::endl;
 }
 
-void clearConsole() {
+void gameScreen::clearConsole() const{
     for (int n = 0; n < 10; n++) {
         printf( "\n\n\n\n\n\n\n\n\n\n" );
     }
@@ -78,7 +78,6 @@ void gameScreen::generateApple() {
     while(true){
         random_x = (rand() % (this->cols - 1)) + 1;
         random_y = (rand() % (this->rows - 1)) + 1;
-        //std::cout << random_y << " " << random_x << std::endl;
         if(isspace(this->gameBoard.at(random_y).at(random_x))) {
             break;
         }
@@ -86,7 +85,7 @@ void gameScreen::generateApple() {
     this->gameBoard.at(random_y).at(random_x) = 'A';
 }
 
-bool gameScreen::checkApple() {
+bool gameScreen::checkApple() const{
     for (int i = 0; i < this->rows; i++) {
         for(int j = 0; j < this->cols; j++) {
             if(this->gameBoard.at(i).at(j) == 'A') {
@@ -97,7 +96,7 @@ bool gameScreen::checkApple() {
     return false;
 }
 
-void gameScreen::checkHitBorder(Snake& theSnake) {
+void gameScreen::checkHitBorder(Snake& theSnake) const{
     if (this->gameBoard.at(theSnake.getHead().first).at(theSnake.getHead().second) == '*') {
         std::cout << "Uh oh, you hit the border" << std::endl;
         std::cout << "Game over :((";
@@ -105,7 +104,7 @@ void gameScreen::checkHitBorder(Snake& theSnake) {
     }
 }
 
-void gameScreen::checkHitSnake(Snake& theSnake) {
+void gameScreen::checkHitSnake(Snake& theSnake) const{
     if(this->gameBoard.at(theSnake.getHead().first).at(theSnake.getHead().second) == 'S'){
         std::cout << "Uh oh, you hit yourself" << std::endl;
         std::cout << "Game over :((";
@@ -113,7 +112,7 @@ void gameScreen::checkHitSnake(Snake& theSnake) {
     }
 }
 
-void gameScreen::checkWin(Snake& theSnake) {
+void gameScreen::checkWin(Snake& theSnake) const{
     if(theSnake.getsnakeVectorX().size() == ((this->rows - 2) * (this->cols - 2))){
         std::cout << "You've filled the board!!" << std::endl;
         std::cout << "You win!! :))";
