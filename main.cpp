@@ -6,8 +6,8 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
 int main() {
-    int column_size = 6;
-    int row_size = 6;
+    int column_size = 8;
+    int row_size = 8;
     Snake theSnake;
     srand((unsigned) time(0));
     //std::rng(seed);
@@ -47,15 +47,20 @@ int main() {
         if(checkValid){
             std::pair<int, int> tailCoords = theSnake.getTail();
             theSnake.updateSnake(choice);
-            theSnake.eatApple(gameScreen, tailCoords);
-            checkHitBorder(theSnake, gameScreen);
-            checkHitSnake(theSnake, gameScreen);
-            checkWin(theSnake, row_size, column_size);
-            emptyBoard(gameScreen, row_size, column_size);
-            fillBorders(gameScreen, row_size, column_size);
-            updateBoard(theSnake, gameScreen);
+            theSnake.eatApple(gameScreen1.getGameBoard(), tailCoords);
+            gameScreen1.checkHitBorder(theSnake);
+            gameScreen1.checkHitSnake(theSnake);
+            gameScreen1.checkWin(theSnake);
+            //checkWin(theSnake, row_size, column_size);
+            gameScreen1.emptyBoard();
+            //emptyBoard(gameScreen, row_size, column_size);
+            gameScreen1.fillBorders();
+            //fillBorders(gameScreen, row_size, column_size);
+            gameScreen1.updateBoard(theSnake);
+            //updateBoard(theSnake, gameScreen);
             clearConsole();
-            printBoard(gameScreen, row_size, column_size);
+            gameScreen1.printBoard();
+            //printBoard(gameScreen, row_size, column_size);
             choiceCounter++;
         }
 
@@ -65,4 +70,4 @@ int main() {
     //return 0;
 }
 
-#pragma clang diagnostic pop
+//#pragma clang diagnostic pop

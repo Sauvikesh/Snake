@@ -8,8 +8,10 @@
 
 class gameScreen{
 public:
+    // constructor
     gameScreen(int rows, int cols);
 
+    std::vector<std::vector<char>> getGameBoard();
     void fillBorders();
     void emptyBoard();
     void updateBoard(Snake& theSnake);

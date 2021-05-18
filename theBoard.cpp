@@ -10,7 +10,12 @@
 #include <time.h>
 
 gameScreen::gameScreen(int rows, int cols) : rows(rows), cols(cols) {
-    std::vector<std::vector<char>> gameBoard(rows, std::vector<char>(cols, ' '));
+    std::vector<std::vector<char>> gameBoardTemp(rows, std::vector<char>(cols, ' '));
+    this->gameBoard = gameBoardTemp;
+}
+
+std::vector<std::vector<char>> gameScreen::getGameBoard(){
+    return this->gameBoard;
 }
 
 void gameScreen::fillBorders() {

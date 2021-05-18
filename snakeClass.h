@@ -16,7 +16,7 @@ public:
     std::vector<int> getsnakeVectorY();
     std::pair<int, int> getTail();
     std::pair<int, int> findDifferencetoAddSegment();
-    void eatApple(std::vector<std::vector<char>>& gameScreen, const std::pair<int ,int>& tailCoords);
+    void eatApple(const std::vector<std::vector<char>>& gameScreen, const std::pair<int ,int>& tailCoords);
 
 
 private:
