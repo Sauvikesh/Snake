@@ -36,9 +36,9 @@ int main() {
         }
 
         char choice;
-        choice = getValidChar("");
+        choice = inputValidation::getValidChar("");
         std::cout << std::endl;
-        bool checkValid = validateUserInput(choice, theSnake, gameScreen1);
+        bool checkValid = inputValidation::validateUserInput(choice, theSnake, gameScreen1);
 
         if(checkValid){
             std::pair<int, int> tailCoords = theSnake.getTail();

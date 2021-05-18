@@ -9,49 +9,49 @@
 #include <iostream>
 #include <sstream>
 
-char getValidChar(const std::string& prompt) {
-    std::string lineRead;
-    char val;
-    bool readSuccessful = false;
-    do{
-        std::cout << prompt;
-        std::getline(std::cin, lineRead); // grab the line
-        std::stringstream lineParser(lineRead); //put it into a string stream so we can parse it
-        lineParser >> val; //read what we want
-        readSuccessful = StreamOnlyContainsWhiteSpace(lineParser); //check that there isn't anything left
-    }while(!readSuccessful); //keep asking until they give me what I want
-    return val;
-}
+namespace inputValidation {
 
-bool StreamOnlyContainsWhiteSpace(std::istream& stream) {
-    char c ='!';
-    if(!stream){ //if you can't read from the stream
-        return false; //something is wrong with the stream
-    }else{
-        stream >> c; // attempt to read a nonwhitespace character
-        //if the stream is bad it means we failed to read
-        //and we should since there shouldn't be anything left
-        return !stream;
+    char getValidChar(const std::string &prompt) {
+        std::string lineRead;
+        char val;
+        bool readSuccessful = false;
+        do {
+            std::cout << prompt;
+            std::getline(std::cin, lineRead); // grab the line
+            std::stringstream lineParser(lineRead); //put it into a string stream so we can parse it
+            lineParser >> val; //read what we want
+            readSuccessful = StreamOnlyContainsWhiteSpace(lineParser); //check that there isn't anything left
+        } while (!readSuccessful); //keep asking until they give me what I want
+        return val;
     }
-}
 
-bool validateUserInput(char direction, Snake& theSnake, const gameScreen& gameScreen) {
-    std::pair<int,int> headLocation = theSnake.getHead();
-    if(direction == 'w') {
+    bool StreamOnlyContainsWhiteSpace(std::istream &stream) {
+        char c = '!';
+        if (!stream) { //if you can't read from the stream
+            return false; //something is wrong with the stream
+        } else {
+            stream >> c; // attempt to read a nonwhitespace character
+            //if the stream is bad it means we failed to read
+            //and we should since there shouldn't be anything left
+            return !stream;
+        }
+    }
+
+    bool validateUserInput(char direction, Snake &theSnake, const gameScreen &gameScreen) {
+        std::pair<int, int> headLocation = theSnake.getHead();
+        if (direction == 'w') {
             return true;
-    }
-    else if(direction == 's') {
-            return true;
-
-    }
-    else if(direction == 'a'){
+        } else if (direction == 's') {
             return true;
 
-    }
-    else if(direction == 'd'){
+        } else if (direction == 'a') {
             return true;
+
+        } else if (direction == 'd') {
+            return true;
+        } else {
+            return false;
+        }
     }
-    else{
-        return false;
-    }
+
 }

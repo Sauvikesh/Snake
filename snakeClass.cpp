@@ -10,7 +10,7 @@ void Snake::setHead(int x, int y) {
     this->snakeBodyPositionsY.push_back(y);
 }
 
-std::pair<int, int> Snake::getHead() {
+std::pair<int, int> Snake::getHead() const{
     auto the_pair = std::make_pair(snakeBodyPositionsX.at(0), snakeBodyPositionsY.at(0));
     return the_pair;
 }
@@ -44,37 +44,22 @@ void Snake::updateSnake(char direction) {
     }
 }
 
-
-std::vector<int> Snake::getsnakeVectorX() {
+std::vector<int> Snake::getsnakeVectorX() const {
     return snakeBodyPositionsX;
 }
-std::vector<int> Snake::getsnakeVectorY() {
+std::vector<int> Snake::getsnakeVectorY() const {
     return snakeBodyPositionsY;
 }
 
-std::pair<int, int> Snake::getTail() {
-
+std::pair<int, int> Snake::getTail() const {
     auto the_pair = std::make_pair(snakeBodyPositionsX.at(snakeBodyPositionsX.size() - 1), snakeBodyPositionsY.at(snakeBodyPositionsX.size() - 1));
     return the_pair;
 
 }
 
-std::pair<int, int> Snake::findDifferencetoAddSegment() {
-    int xSecondLast = snakeBodyPositionsX.at(snakeBodyPositionsX.size() - 2);
-    int ySecondLast = snakeBodyPositionsY.at(snakeBodyPositionsY.size() - 2);
-    int xLast = this->getTail().first;
-    int yLast = this->getTail().second;
-    int xDifference = xLast - xSecondLast;
-    int yDifference = yLast - ySecondLast;
-    return std::make_pair(xDifference, yDifference);
-}
 
 void Snake::eatApple(const std::vector<std::vector<char>>& gameScreen, const std::pair<int ,int>& tailCoords) {
     if(gameScreen.at(snakeBodyPositionsX.at(0)).at(snakeBodyPositionsY.at(0)) == 'A'){
-//        int xLast = this->getTail().first;
-//        int yLast = this->getTail().second;
-//        std::pair<int, int> differencePair = this->findDifferencetoAddSegment();
-
         this->addSegment(tailCoords.first, tailCoords.second);
     }
 }

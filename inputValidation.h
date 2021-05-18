@@ -9,8 +9,11 @@
 #include <sstream>
 #include "snakeClass.h"
 #include "theBoard.h"
-char getValidChar(const std::string& prompt);
-bool StreamOnlyContainsWhiteSpace(std::istream& stream);
-bool validateUserInput(char direction, Snake& theSnake, const gameScreen& gameScreen);
+namespace inputValidation {
+    char getValidChar(const std::string &prompt);
 
+    bool StreamOnlyContainsWhiteSpace(std::istream &stream);
+
+    bool validateUserInput(char direction, Snake &theSnake, const gameScreen &gameScreen);
+}
 #endif //SNAKE_INPUTVALIDATION_H
